@@ -3,13 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kangaroo
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            consoleOutput = string.Empty;
+
+            string[] tokens_x1 =args;
+            int x1 = Convert.ToInt32(tokens_x1[0]);
+            int v1 = Convert.ToInt32(tokens_x1[1]);
+            int x2 = Convert.ToInt32(tokens_x1[2]);
+            int v2 = Convert.ToInt32(tokens_x1[3]);
+
+
+            consoleOutput = "ThisIsATEts";
+        }
+
+        public static string consoleOutput;
+
+
+    }
+
+    [TestClass]
+    public class tests
+    {
+        [TestMethod]
+        public void Test1()
+        {
+            string[] args = new string[4] {"0","2","3","5" }; 
+            Program.Main(args);
+            Assert.AreEqual("ThisIsATEts", Program.consoleOutput);
+            
         }
     }
 }
